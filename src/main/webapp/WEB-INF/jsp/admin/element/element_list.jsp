@@ -1,6 +1,6 @@
-<%@ include file="../includes/header.jsp" %>
-<%@ include file="../includes/navbar.jsp" %>
-<%@ include file="../includes/subnav_admin.jsp" %>
+<%@ include file="../../includes/header.jsp" %>
+<%@ include file="../../includes/navbar.jsp" %>
+<%@ include file="../../includes/subnav_admin.jsp" %>
 
 <div class="wrapper">
     <%@ include file="element_sidebar.jsp" %>
@@ -33,4 +33,4 @@
 
 </div>
 
-<%@ include file="../includes/footer.jsp" %>
+<%@ include file="../../includes/footer.jsp" %>
