@@ -22,7 +22,7 @@
                                 <td>${elementType.id}</td>
                                 <td>${elementType.elementTypeName}</td>
                                 <td>Elements will go here</td>
-                                <td>Edit</td>
+                                <td><a href="/admin/element/edit/ + ${elementType.id}">Edit</a> </td>
                                 <td>Delete</td>
                             </tr>
                         </c:forEach>
