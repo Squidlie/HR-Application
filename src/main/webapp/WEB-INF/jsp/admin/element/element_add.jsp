@@ -2,12 +2,19 @@
 <%@ include file="../../includes/navbar.jsp" %>
 <%@ include file="../../includes/subnav_admin.jsp" %>
 
+<script>
+    $(document).ready(function(){
+       $("#successAlert").delay(6000).fadeOut(2000);
+       $("#warningAlert").delay(8000).fadeOut(2000);
+    });
+</script>
+
 <div class="wrapper">
 
     <%@ include file="element_sidebar.jsp" %>
 
-    <div id="main-wrapper" class="col-md-11 pull-right">
-        <div class="col-lg-8 col-md-7 col-sm-6">
+    <div id="main-wrapper" class="col-sm-10">
+        <div class="col-sm-8">
 
             <form:form cssClass="form-horizontal" modelAttribute="elementVO" action="/admin/element/add" method="post">
                 <fieldset>
@@ -37,6 +44,28 @@
             </form:form>
 
         </div>
+        <div class="col-sm-4">
+            <div class="${successAlert == null ? "hidden" : successAlert}" id="successAlert">
+                <div class="alert alert-dismissible alert-success">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Element successfully added to the database!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
+                </div>
+            </div>
+            <div class="${warningAlert == null ? "hidden" : warningAlert}" id="warningAlert">
+                <div class="alert alert-dismissible alert-warning">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <h4>Be Advised!</h4>
+                    <p>All fields required. Please enter an Element Type and associated Elements separated by a new line. <a href="#" class="alert-link">Link</a>.</p>
+                </div>
+            </div>
+            <div class="${errorAlert == null ? "hidden" : errorAlert}" id="errorAlert">
+                <div class="alert alert-dismissible alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 

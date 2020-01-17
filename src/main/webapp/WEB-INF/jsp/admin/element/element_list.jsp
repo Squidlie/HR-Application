@@ -4,8 +4,8 @@
 
 <div class="wrapper">
     <%@ include file="element_sidebar.jsp" %>
-        <div id="main-wrapper" class="col-md-11 pull-right">
-            <div class="col-lg-8 col-md-7 col-sm-6">
+        <div id="main-wrapper" class="col-md-10">
+            <div class="col-sm-12">
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
@@ -22,8 +22,8 @@
                                 <td>${elementType.id}</td>
                                 <td>${elementType.elementTypeName}</td>
                                 <td>Elements will go here</td>
-                                <td><a href="/admin/element/edit/ + ${elementType.id}">Edit</a> </td>
-                                <td>Delete</td>
+                                <td><a href="/admin/element/edit/${elementType.id}">Edit</a> </td>
+                                <td><a href="/admin/element/delete/${elementType.id}">Delete</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>
