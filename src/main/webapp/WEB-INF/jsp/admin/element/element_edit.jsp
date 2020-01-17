@@ -7,7 +7,7 @@
     <div id="main-wrapper" class="col-md-11 pull-right">
         <div class="col-lg-8 col-md-7 col-sm-6">
             <c:set var="idx" value="0" scope="page" />
-            <form:form class="form-horizontal" modelAttribute="elementType" action="admin/element/update" method="post">
+            <form:form class="form-horizontal" modelAttribute="elementType" action="/admin/element/update" method="post">
                 <form:hidden path="id"/>
                 <form:hidden path="version"/>
 
@@ -47,7 +47,7 @@
 
                 <div class="row">
                     <div class="form-group">
-                        <label for="inputElement" class="col-sm-3 control-label">Element</label>
+                        <label for="inputElement" class="col-sm-3 control-label">New Element</label>
                         <div class="col-sm-7">
                             <input type="text" class="form-control" name="inputNewElement"/>
                         </div>

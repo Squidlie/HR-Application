@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,12 +48,24 @@ public class AdminController {
         return "admin/element/element_list";
     }
 
-    @RequestMapping(value= "admin/element/edit/{id}", method = RequestMethod.GET)
+    @RequestMapping(value= "/admin/element/edit/{id}", method = RequestMethod.GET)
     public String elementTypeEdit(@PathVariable int id, Model model) {
         ElementType elementType = elementTypeService.getElementTypeById(id);
 
         model.addAttribute("elementType", elementType);
         return "admin/element/element_edit";
+    }
+
+    @RequestMapping(value = "/admin/element/update", method = RequestMethod.POST)
+    public String elementTypeUpdate(ElementType elementType,
+                                    Model model,
+                                    @RequestParam("inputNewElement") String newElement) {
+        if(!newElement.equals("")) {
+            elementType.getElementList().add(new Element(newElement));
+        }
+
+        elementTypeService.saveElementType(elementType);
+        return "redirect:/admin/element/edit/" + elementType.getId();
     }
 
 
