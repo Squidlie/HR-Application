@@ -32,8 +32,8 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event){
-        generateElementAndElementTypes();
-        generateVehiclesMakesAndModels();
+//        generateElementAndElementTypes();
+//        generateVehiclesMakesAndModels();
     }
 
     private void generateElementAndElementTypes(){

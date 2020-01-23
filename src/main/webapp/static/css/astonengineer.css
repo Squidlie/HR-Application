@@ -5,3 +5,13 @@
 .visible{
     visibility: visible;
 }
+.blueBackground{
+    background-color: #f2f2f2;
+}
+.text-bold{
+    color: #000000;
+    font-weight: bolder;
+}
+.text-green{
+    color: #96c631;
+}
