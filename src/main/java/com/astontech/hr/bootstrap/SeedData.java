@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,11 +28,41 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
     @Autowired
     private VehicleMakeService vehicleMakeService;
 
+    @Autowired
+    private EmployeeService employeeService;
+
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event){
 //        generateElementAndElementTypes();
 //        generateVehiclesMakesAndModels();
+//        generateEmployees();
+    }
+
+    private void generateEmployees(){
+        Employee emp1 = new Employee();
+        emp1.setFirstName("Bipin");
+        emp1.setLastName("Butala");
+        emp1.setBackground("Java Developer");
+        employeeService.saveEmployee(emp1);
+
+        Employee emp2 = new Employee();
+        emp2.setFirstName("Tony");
+        emp2.setLastName("Morano");
+        emp2.setBackground("Java Developer");
+        employeeService.saveEmployee(emp2);
+
+        Employee emp3 = new Employee();
+        emp3.setFirstName("Dan");
+        emp3.setLastName("Simmer");
+        emp3.setBackground("DotNet Developer");
+        employeeService.saveEmployee(emp3);
+
+        Employee emp4 = new Employee();
+        emp4.setFirstName("Sean");
+        emp4.setLastName("Nilsen");
+        emp4.setBackground("Contact Center Engineer");
+        employeeService.saveEmployee(emp4);
     }
 
     private void generateElementAndElementTypes(){
