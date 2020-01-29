@@ -2,6 +2,7 @@ package com.astontech.hr.services;
 
 import com.astontech.hr.domain.Element;
 
+
 import java.util.List;
 
 public interface ElementService {

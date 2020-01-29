@@ -31,12 +31,117 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
     @Autowired
     private EmployeeService employeeService;
 
+    @Autowired
+    private ContactService contactService;
+
+    @Autowired
+    private AddressService addressService;
+
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event){
 //        generateElementAndElementTypes();
 //        generateVehiclesMakesAndModels();
 //        generateEmployees();
+//        generateContactsAndAddresses();
+    }
+
+    private void generateContactsAndAddresses(){
+        Element workEmail = elementService.getElementById(6);
+        Element personalEmail = elementService.getElementById(7);
+        Element homePhone = elementService.getElementById(9);
+        Element workPhone = elementService.getElementById(10);
+        Element cellPhone = elementService.getElementById(11);
+
+
+        Person bipin = employeeService.getEmployeeById(1);
+        List<Contact> bipinList = new ArrayList<>();
+        bipinList.add(new Contact(bipin, personalEmail, "bipinsemail@bipin.com","null"));
+        bipinList.add(new Contact(bipin, workEmail, "bipinsemail@astontech.com","null"));
+        bipinList.add(new Contact(bipin, homePhone, "null", "1112223333"));
+        bipinList.add(new Contact(bipin, workPhone, "null","1111111111"));
+        bipinList.add(new Contact(bipin, cellPhone, "null","1212121212"));
+        contactService.saveContactList(bipinList);
+
+        Address bip1 = new Address(123, "Main St", "Minneapolis", "MN", "United States");
+        Address bip2 = new Address(1111, "Street Street", "Saint Paul", "MN", "United States");
+        bip1.setPerson(bipin);
+        bip2.setPerson(bipin);
+        addressService.saveAddress(bip1);
+        addressService.saveAddress(bip2);
+
+
+        Person tony = employeeService.getEmployeeById(2);
+        List<Contact> tonyList = new ArrayList<>();
+        tonyList.add(new Contact(tony, personalEmail, "tonysemail@tony.com","null"));
+        tonyList.add(new Contact(tony, workEmail, "tonysemail@astontech.com","null"));
+        tonyList.add(new Contact(tony, homePhone, "null","1223334444"));
+        tonyList.add(new Contact(tony, workPhone, "null","1222222222"));
+        tonyList.add(new Contact(tony, cellPhone, "null","1231232323"));
+        contactService.saveContactList(tonyList);
+
+        Address tony1 = new Address(123, "Main St", "St. Louis Park", "MN", "United States");
+        Address tony2 = new Address(2222, "Tony Street", "Bloomington", "MN", "United States");
+        tony1.setPerson(tony);
+        tony2.setPerson(tony);
+        addressService.saveAddress(tony1);
+        addressService.saveAddress(tony2);
+
+
+        Person eric = employeeService.getEmployeeById(3);
+        List<Contact> ericList = new ArrayList<>();
+        ericList.add(new Contact(eric, personalEmail, "ericsemail@eric.com","null"));
+        ericList.add(new Contact(eric, workEmail, "ericsemail@astontech.com","null"));
+        ericList.add(new Contact(eric, homePhone, "null","1334445555"));
+        ericList.add(new Contact(eric, workPhone, "null","1333333333"));
+        ericList.add(new Contact(eric, cellPhone, "null","1341343434"));
+        contactService.saveContactList(ericList);
+
+        Address eric1 = new Address(123, "Eric St", "Saint Paul", "MN", "United States");
+        eric1.setPerson(eric);
+        addressService.saveAddress(eric1);
+
+
+        Person justin = employeeService.getEmployeeById(4);
+        List<Contact> justinList = new ArrayList<>();
+        justinList.add(new Contact(justin, personalEmail, "justinsemail@justin.com","null"));
+        justinList.add(new Contact(justin, workEmail, "justinsemail@astontech.com","null"));
+        justinList.add(new Contact(justin, homePhone, "null","1445556666"));
+        justinList.add(new Contact(justin, workPhone, "null","1444444444"));
+        justinList.add(new Contact(justin, cellPhone, "null","1451454545"));
+        contactService.saveContactList(justinList);
+
+        Address justin1 = new Address(123, "Justin St", "Saint Paul", "MN", "United States");
+        justin1.setPerson(justin);
+        addressService.saveAddress(justin1);
+
+
+        Person dan = employeeService.getEmployeeById(5);
+        List<Contact> danList = new ArrayList<>();
+        danList.add(new Contact(dan, personalEmail, "dansemail@dan.com","null"));
+        danList.add(new Contact(dan, workEmail, "dansemail@astontech.com","null"));
+        danList.add(new Contact(dan, homePhone, "null","1556667777"));
+        danList.add(new Contact(dan, workPhone, "null","1555555555"));
+        danList.add(new Contact(dan, cellPhone, "null","1561565656"));
+        contactService.saveContactList(danList);
+
+        Address dan1 = new Address(123, "Dan St", "Minneapolis", "MN", "United States");
+        dan1.setPerson(dan);
+        addressService.saveAddress(dan1);
+
+
+        Person sean = employeeService.getEmployeeById(6);
+        List<Contact> seanList = new ArrayList<>();
+        seanList.add(new Contact(sean, personalEmail, "seansemail@sean.com","null"));
+        seanList.add(new Contact(sean, workEmail, "seansemail@astontech.com", "null"));
+        seanList.add(new Contact(sean, homePhone, "null","1667778888"));
+        seanList.add(new Contact(sean, workPhone, "null","1666666666"));
+        seanList.add(new Contact(sean, cellPhone, "null","1671676767"));
+        contactService.saveContactList(seanList);
+
+        Address sean1 = new Address(123, "Sean St", "Minneapolis", "MN", "United States");
+        sean1.setPerson(sean);
+        addressService.saveAddress(sean1);
     }
 
     private void generateEmployees(){
@@ -89,6 +194,7 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
         emailType.setElementList(emailList);
 
         elementTypeService.saveElementType(emailType);
+
     }
 
     private void generateVehiclesMakesAndModels(){
