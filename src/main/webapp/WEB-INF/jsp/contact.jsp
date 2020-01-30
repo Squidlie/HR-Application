@@ -16,7 +16,7 @@
 
     <button onclick="insertContactEmail()" class="btn btn-default" style="margin-top: 10px; margin-bottom: 10px;">Add New Email</button>
     <button onclick="insertContactPhone()" class="btn btn-default" style="margin-top: 10px; margin-bottom: 10px; margin-left: 10px;">Add New Phone</button>
-    <table id="contact-table" class="table table-striped table-hover">
+    <table id="contact-table" class="table table-hover">
         <thead>
         <tr>
             <th>ID</th>

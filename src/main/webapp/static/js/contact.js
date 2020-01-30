@@ -7,7 +7,7 @@ function buildTable() {
             if(single.element.id > 5 && single.element.id < 9){
                 $('#contact-table').find('tbody')
                     .append(
-                        "<tr>" +
+                        "<tr class='active'>" +
                         "<td>" + single.id + "</td>" +
                         "<td>" + fullName + "</td>" +
                         "<td>Email</td>" +
